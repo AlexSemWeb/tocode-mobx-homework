@@ -1,9 +1,18 @@
-import getData from './fetch'
+// reddit
+// reddit -> threads
+
+import getData from './getData'
 
 export default {
-  async fetchData() {
+  // GET
+  async get() {
     const res = await getData('https://www.reddit.com/r/reactjs.json')
-    const rebuildRes = await res.data.children
-    return rebuildRes
+    return res
   },
+  // PUT
+  // update(id, item) {},
+  // POST
+  // store() {},
+  // DELETE
+  // destroy() {},
 }
