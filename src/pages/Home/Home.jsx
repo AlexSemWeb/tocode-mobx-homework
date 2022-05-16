@@ -7,6 +7,7 @@ const store = new threadsStore()
 
 // components:
 import { Container } from 'layouts'
+import Loader from 'components/Loader'
 
 // icons:
 import { ReactComponent as UserIcon } from 'assets/img/user.svg'
@@ -18,7 +19,9 @@ const HomePage = observer(() => {
   // error
   const renderError = store.status === 'error' && <p>connection error</p>
   // loading
-  const renderLoading = store.status === 'pending' && <p>loading ....</p>
+  const renderLoading = store.status === 'pending' && (
+    <Loader className='mx-auto' />
+  )
   // content
   const renderContent = store.status === 'done' && (
     <div className='TreadList'>
