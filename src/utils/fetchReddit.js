@@ -1,6 +1,5 @@
 // reddit
 // reddit -> threads
-
 import getData from './getData'
 
 export default {
@@ -8,25 +7,29 @@ export default {
   async get() {
     const res = await getData('https://www.reddit.com/r/reactjs.json')
     const resChildren = await res.data.children
-
     const nextRes = []
+
+    // build new data
     resChildren.forEach((el) => {
       nextRes.push({
         id: el.data.id,
-        title: el.data.title,
         url: el.data.url,
+        title: el.data.title,
+        // extra info
+        score: el.data.score,
+        author: el.data.author,
+        comments: el.data.num_comments,
+        // image (thumbnail)
+        thumbnail: {
+          src: el.data.thumbnail,
+          width: el.data.thumbnail_width,
+          height: el.data.thumbnail_height,
+        },
       })
-      // nextRes.push(el.data)
     })
 
-    console.log('original', res)
-    console.log('next', nextRes)
+    // console.log('original', res)
+    // console.log('next', nextRes)
     return nextRes
   },
-  // PUT
-  // update(id, item) {},
-  // POST
-  // store() {},
-  // DELETE
-  // destroy() {},
 }

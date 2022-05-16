@@ -8,12 +8,8 @@
     'Segoe UI Emoji', 'Segoe UI Symbol' !important;
 }
 
-// ----- colors change
-// docs: https://uimini.github.io/docs/docs/colors.html
-
-// .ui-body {
-//   --ui-primary-color: #1890ff;
-// }
-
 // import helpers
 @import './helpers/_helpers';
+
+// threads (lazy way)
+@import './treads';
