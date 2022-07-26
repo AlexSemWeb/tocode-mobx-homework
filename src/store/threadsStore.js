@@ -25,6 +25,24 @@ class threadsStore {
           console.log(err)
         })
   }
+
+  scoreUp = (id) => {
+    this.threads.map((item) => {
+      if (item.id === id) {
+        ++item.score
+      }
+      return item
+    })
+  }
+
+  scoreDown = (id) => {
+    this.threads.map((item) => {
+      if (item.id === id) {
+        item.score && --item.score
+      }
+      return item
+    })
+  }
 }
 
 export default threadsStore

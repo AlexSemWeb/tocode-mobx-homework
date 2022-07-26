@@ -8,6 +8,7 @@ const store = new threadsStore()
 // components:
 import { Container } from 'layouts'
 import Loader from 'components/Loader'
+import Badge from 'components/Badge'
 
 // icons:
 import { ReactComponent as UserIcon } from 'assets/img/user.svg'
@@ -59,6 +60,11 @@ const HomePage = observer(() => {
                     {tread.comments} comments
                   </p>
                 </div>
+                <Badge
+                  tread={tread}
+                  scoreUp={store.scoreUp}
+                  scoreDown={store.scoreDown}
+                />
               </div>
             </div>
           ))
